@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item>
+        <shape android:shape="rectangle">
+            <gradient
+                android:type="linear"
+                android:angle="270"
+                android:startColor="@color/blue_splash"
+                android:centerColor="@color/purple_splash"
+                android:endColor="@color/purple_splash"/>
+        </shape>
+    </item>
+
+    <item>
+        <bitmap
+            android:src="@drawable/mubi_logo"
+            android:gravity="center"/>
+    </item>
+
+</layer-list>
