@@ -13,19 +13,25 @@ import androidx.core.view.WindowCompat
 
 private val DarkColorScheme = darkColorScheme(
     primary = Purple,
-    secondary = LightBlue,
+    onPrimary = White,
+    secondary = Blue,
     tertiary = LightTurquoise,
     background = Black,
-    surfaceVariant = White,
+    surface = Turquoise,
+    onSurface = White,
+    onSurfaceVariant = Gray,
     error = Red
 )
 
 private val LightColorScheme = lightColorScheme(
     primary = Purple,
+    onPrimary = White,
     secondary = Blue,
     tertiary = Turquoise,
     background = Background,
-    surfaceVariant = Text,
+    surface = Gray,
+    onSurface = Text,
+    onSurfaceVariant = SubText,
     error = Red
 )
 
@@ -40,7 +46,7 @@ fun ApplaudosCodeChallengeAndroidTheme(
         SideEffect {
             (view.context as Activity).window.apply {
                 statusBarColor = colorScheme.secondary.toArgb()
-                WindowCompat.getInsetsController(this, view).isAppearanceLightStatusBars = darkTheme
+                WindowCompat.getInsetsController(this, view).isAppearanceLightStatusBars = false
             }
         }
     }
