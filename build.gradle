@@ -28,6 +28,7 @@ ext {
     coil_version = '2.2.2'
     okhttp_version = '4.10.0'
     junit_version = '4.13.2'
+    mockito_version = '3.12.4'
     android_junit_version = '1.1.5'
     espresso_version = '3.5.1'
 }
