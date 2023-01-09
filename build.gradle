@@ -18,7 +18,6 @@ ext {
     compose_material_version = '1.0.1'
     compose_activity_version = '1.6.1'
     compose_navigation_version = '2.5.3'
-    flowlayout_version = '0.17.0'
     coroutine_version = '1.6.4'
     lifecycle_version = '2.5.1'
     hilt_navigation_version = '1.0.0'

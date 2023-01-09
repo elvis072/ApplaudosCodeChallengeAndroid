@@ -6,15 +6,16 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
+import com.example.applaudoscodechallengeandroid.common.Constants
 import com.example.applaudoscodechallengeandroid.ui.Screen
 import com.example.applaudoscodechallengeandroid.ui.theme.ApplaudosCodeChallengeAndroidTheme
+import com.example.applaudoscodechallengeandroid.ui.tvshowdetail.TvShowDetailScreen
 import com.example.applaudoscodechallengeandroid.ui.tvshowlist.TvShowListScreen
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -34,25 +35,23 @@ class MainActivity : ComponentActivity() {
                         navController = navController,
                         startDestination = Screen.TvShowList.route
                     ) {
-                        composable(Screen.TvShowList.route) {
+                        composable(route = Screen.TvShowList.route) {
                             TvShowListScreen(navController = navController)
+                        }
+                        composable(
+                            route = Screen.TvShowDetail.route + "/{${Constants.TV_SHOW_ID_KEY}}",
+                            arguments = listOf(
+                                navArgument(Constants.TV_SHOW_ID_KEY) {
+                                    defaultValue = 0
+                                    type = NavType.IntType
+                                }
+                            )
+                        ) {
+                            TvShowDetailScreen(navController = navController)
                         }
                     }
                 }
             }
         }
-    }
-}
-
-@Composable
-fun Greeting(name: String) {
-    Text(text = "Hello $name!")
-}
-
-@Preview(showBackground = true)
-@Composable
-fun DefaultPreview() {
-    ApplaudosCodeChallengeAndroidTheme {
-        Greeting("Android")
     }
 }

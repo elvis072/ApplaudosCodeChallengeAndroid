@@ -13,12 +13,16 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringArrayResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import androidx.core.os.bundleOf
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import androidx.navigation.NavOptions
 import androidx.paging.LoadState
 import androidx.paging.compose.collectAsLazyPagingItems
 import com.example.applaudoscodechallengeandroid.R
+import com.example.applaudoscodechallengeandroid.common.Constants
 import com.example.applaudoscodechallengeandroid.domain.repository.TvShowType
+import com.example.applaudoscodechallengeandroid.ui.Screen
 import com.example.applaudoscodechallengeandroid.ui.tvshowlist.component.TvShowListItem
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -55,7 +59,7 @@ fun TvShowListScreen(
                     label = {
                         Text(
                             text = tvShowFilters[it.ordinal],
-                            style = MaterialTheme.typography.headlineSmall,
+                            style = MaterialTheme.typography.titleLarge,
                         )
                     },
                     colors = FilterChipDefaults.filterChipColors(
@@ -65,6 +69,7 @@ fun TvShowListScreen(
                         selectedLabelColor = MaterialTheme.colorScheme.onPrimary
                     ),
                     border = null,
+                    shape = MaterialTheme.shapes.large,
                     enabled = tvShows.loadState.refresh is LoadState.NotLoading,
                     selected = it == state.showType,
                     onClick = {
@@ -83,9 +88,9 @@ fun TvShowListScreen(
             contentPadding = PaddingValues(15.dp, 15.dp)
         ) {
             items(tvShows.itemCount) { index ->
-                tvShows[index]?.let {
-                    TvShowListItem(tvShow = it, onItemClick = {
-                        Toast.makeText(navController.context, it.name, Toast.LENGTH_SHORT).show()
+                tvShows[index]?.let { tvShow ->
+                    TvShowListItem(tvShow = tvShow, onItemClick = {
+                        navController.navigate(Screen.TvShowDetail.route + "/${it.id}")
                     })
                 }
             }
@@ -97,10 +102,7 @@ fun TvShowListScreen(
                 contentAlignment = Alignment.Center,
                 modifier = Modifier.fillMaxSize()
             ) {
-                CircularProgressIndicator(
-                    modifier = Modifier.size(50.dp),
-                    color = MaterialTheme.colorScheme.primary
-                )
+                CircularProgressIndicator()
             }
         }
 

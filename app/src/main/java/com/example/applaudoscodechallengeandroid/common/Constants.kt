@@ -1,6 +1,10 @@
 package com.example.applaudoscodechallengeandroid.common
 
 object Constants {
+
+    // Erros
+    const val GENERIC_ERROR = "An error has occurred"
+
     // URLs
     const val BASE_URL = "https://api.themoviedb.org/3/"
     const val ITEM_LIST_IMAGE_BASE_URL = "https://image.tmdb.org/t/p/w342"

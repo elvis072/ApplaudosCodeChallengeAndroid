@@ -1,4 +1,4 @@
-package com.example.applaudoscodechallengeandroid.ui.tvshowlist.component
+package com.example.applaudoscodechallengeandroid.ui.common.component
 
 import androidx.compose.foundation.layout.Row
 import androidx.compose.material.icons.Icons

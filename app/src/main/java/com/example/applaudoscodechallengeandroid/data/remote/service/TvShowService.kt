@@ -1,9 +1,11 @@
 package com.example.applaudoscodechallengeandroid.data.remote.service
 
 import com.example.applaudoscodechallengeandroid.data.remote.dto.PageResultDto
+import com.example.applaudoscodechallengeandroid.data.remote.dto.TvShowDetailDto
 import com.example.applaudoscodechallengeandroid.data.remote.dto.TvShowDto
 import retrofit2.Response
 import retrofit2.http.GET
+import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface TvShowService {
@@ -18,4 +20,7 @@ interface TvShowService {
 
     @GET("tv/airing_today")
     suspend fun getAiringTodayShows(@Query("page") page: Int) : PageResultDto<TvShowDto>
+
+    @GET("tv/{id}")
+    suspend fun getTvShowDetail(@Path("id") id: Int) : TvShowDetailDto
 }

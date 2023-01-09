@@ -20,6 +20,7 @@ import coil.request.ImageRequest
 import com.example.applaudoscodechallengeandroid.common.Constants
 import com.example.applaudoscodechallengeandroid.domain.model.TvShow
 import com.example.applaudoscodechallengeandroid.R
+import com.example.applaudoscodechallengeandroid.ui.common.component.RatingBar
 import com.example.applaudoscodechallengeandroid.ui.theme.ApplaudosCodeChallengeAndroidTheme
 
 @Composable
